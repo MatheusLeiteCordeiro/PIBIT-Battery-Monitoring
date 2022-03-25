@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head> <title>MONITORAMENTO DE TRANSFORMADORES</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta http-equiv="refresh" content="0.1">
+    <link rel="stylesheet" href="{% static 'css/MOT.css' %}">
+</head>
+<style>
+
+    div.espaco{
+        background-color: #b3093f;
+    }
+</style>
+ <body>
+ <div class="espaco">
+      <img src="{% static 'img/IFPE.png' %}" width="150" alt="">
+      {{plottrafos | safe}}
+ </div>
+</body>
+</html>

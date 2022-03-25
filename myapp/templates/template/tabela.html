@@ -1,0 +1,28 @@
+<form action="{% url 'tabela' id %}" method="GET">
+    {% csrf_token %}
+    <input id="key" type="text" name="key" value="">
+    <input id="value" type="text" name="value" value="">
+    <input type="submit" value="Submit" />
+</form>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>TABELA</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>{{ item.data }} - {{ item.hora }}</h1>-->
+
+<!--<h1>Corrente:-->
+<!--            <b1>|  {{ item.corrente }}  |</b1>-->
+<!--        </h1>-->
+<!--<h1>Temperatura:-->
+<!--            <b1>|  {{ item.temperatura }}  |</b1>-->
+<!--        </h1>-->
+<!--<h1>Tensão:-->
+<!--            <b1>|  {{ item.tensao }}  |</b1>-->
+<!--        </h1>-->
+<!--</body>-->
+<!--</html>-->
+

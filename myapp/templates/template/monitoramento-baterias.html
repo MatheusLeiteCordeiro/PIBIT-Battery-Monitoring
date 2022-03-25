@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head> <title>MONITORAMENTO DE BATERIAS</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+   
+    <link rel="stylesheet" href="{% static 'css/MB.css' %}">
+</head>
+ <body>
+ <div>
+     <img src="{% static 'img/IFPE.png' %}" width="150">
+ </div>
+{{plotbaterias | safe}}
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PIBIT-Monitoramento de Ativos</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <meta http-equiv="refresh" content="0.5">
+
+</head>
+<body>
+    <!-- <div id="plot1">
+        {{plot | safe}}
+    </div> -->
+
+    <header id="header">
+
+        <section id="source-bar">
+
+            <input id="input-source-bar" type="text" placeholder="Procure por....">
+
+            <button id="buttom-source-bar">
+
+                <img id="lupa-source-box" src="{% static 'img/lupa.png' %}" >
+
+            </button>
+
+        </section>
+
+        <img id="notificacao-box" src="{% static 'img/notificacao.png' %}">
+
+        <img id="message-box" src="{% static 'img/caixa-de-mensagem.png' %}">
+
+        <div class="divsion-line-header"></div>
+
+        <span id="usuario">
+
+            <p id="text-user">Usuário</p>
+
+            <img id='image-user' src="{% static 'img/profile.png' %}">
+
+        </span>
+
+    </header>
+
+    <section id="barra-menu">
+
+        
+
+    </section>
+
+</body>
+</html>

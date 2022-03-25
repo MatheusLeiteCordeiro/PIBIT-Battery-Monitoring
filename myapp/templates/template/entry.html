@@ -1,0 +1,12 @@
+
+{% if error %}
+
+<div style="color:rgba(222, 14, 14, 0.582);">{{ error }}</div>
+
+{% endif %}
+
+<form action="/entry/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="enviar">
+</form>
