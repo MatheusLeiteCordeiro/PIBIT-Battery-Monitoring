@@ -1,3 +1,6 @@
+from multiprocessing import parent_process
+from pickle import FALSE
+from turtle import color
 from django.shortcuts import render
 from .models import Thing
 from django.http import Http404
@@ -11,35 +14,49 @@ from datetime import datetime
 
 
 def home(request):
-    return render(request, 'template/home.html')
+    return render(request, 'template/index.html')
 
-def Battery_Dashboards(request):
-    # Dashboard Corrente
-    def corrente_dashboard():
+
+def current_dashboard(request):
+    # Dashboard Carga
+    def dash():
         fig = make_subplots(
-            vertical_spacing=0.15,
-            horizontal_spacing=0.05,
-            subplot_titles=('', 'CARGA DA CÉLULA'),
-            rows=1, cols=1 )
+            vertical_spacing=0.5,
+            horizontal_spacing=1,
+            subplot_titles=(),
+            rows=2, cols=2 )
         
         fig.add_trace(x.Bar(
             name='CARGA DA CÉLULA',
             y=[100, 90, 80, 70, 50, 75, 10, 20, 95, 40, 30, 60],
             x=[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 23]
-            ), row=1, col=1
+            ), row=1, col=1 )
 
+        fig.add_trace(x.Scatter(
+            name='TENSÃO',
+            x=[8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+            y=[400, 290, 220, 300, 366, 270, 200], ),
+            row=2, col=2
         )
 
+        fig.add_trace(x.Indicator(
+            mode="gauge+number",
+            value=5,
+            title={'text': "Temperatura (C°)"},
+            domain={'x': [0, 0.5], 'y': [0, 0.95]}
+        ))
+
         fig.update_layout(
+            showlegend=False,
             # template= 'plotly_dark', #modelo
-            width=831,  # dimencionamento horizontal da área de plotagem (paper)
-            height=420,  # dimensionamento vertical do paper
+            width=750,  # dimencionamento horizontal da área de plotagem (paper)
+            height=1300,  # dimensionamento vertical do paper
             title_xanchor='left',  # posição do título
             # title='Monitoramento de Baterias',
             titlefont={'family': "Arial", 'size': 40, 'color': 'white'},  # dados do título
-            legend_orientation="v", legend=dict(x=1, y=1),  # orientação, posição da legenda (séries)
-            plot_bgcolor='aliceblue',  # cor da área do gráfico
-            paper_bgcolor='aliceblue',
+            legend_orientation="v", legend=dict(x=1, y=1),   # orientação, posição da legenda (séries)
+            paper_bgcolor='rgba(0,0,0,0)', 
+            plot_bgcolor='rgba(0,0,0,0)', # cor da área do gráfico
             modebar_orientation='h', modebar_bgcolor='steelblue',  # orientação  e cor da modbarra
         )
 
@@ -47,11 +64,13 @@ def Battery_Dashboards(request):
 
         fig.data[0].marker.line.width = 3
         fig.data[0].marker.line.color = 'white'
+        fig.data[1].marker.line.width = 3
+        fig.data[1].marker.line.color = 'yellow'
 
-        plotar1 = plot(figure_or_data=fig, output_type='div', include_plotlyjs=False)
-        return plotar1
+        plotar = plot(figure_or_data=fig, output_type='div', include_plotlyjs=False)
+        return plotar
 
-    context = {'plotcorrente': corrente_dashboard}
+    context = {'plot': dash}
 
     return render(request, 'template/Battery_Dashboards.html', context)
 

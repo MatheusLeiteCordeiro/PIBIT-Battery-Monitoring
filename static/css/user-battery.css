@@ -10,8 +10,6 @@ body {
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
     position: absolute;
     z-index: 0;
-    position: fixed;
-    margin-top: 0;
 }
 
 #source-bar {
@@ -422,16 +420,19 @@ margin-bottom: 9%;
 #indi-tensao {
     display: inline-block;
     margin-left: 41.6%;
+    border-left: red 5px solid;
 }
 
 #indi-temperatura {
     display: inline-block;
     margin-left: 61.6%;
+    border-left: #1cc88a 5px solid;
 }
 
 #indi-furtos {
     display: inline-block;
     margin-left: 81%;
+    border-left: #9335ff 5px solid;
 }
 
 .indicators-text {
@@ -447,15 +448,15 @@ margin-bottom: 9%;
 }
 
 .text-indi-tensao {
-    color: #1cc88a;
-}
-
-.text-indi-temperatura {
     color: red;
 }
 
+.text-indi-temperatura {
+    color: #1cc88a;
+}
+
 .text-indi-furtos {
-    color: #f6c23e;
+    color: #9335ff;
 }
 
 .values-indicators {
@@ -474,7 +475,9 @@ margin-bottom: 9%;
 }
 
 .all-dashboards {
-    border: 1px solid black;
+    border: 1px solid white;
+    z-index: 1;
+    display: block;
 }
 
 .plots-box {
@@ -484,20 +487,66 @@ margin-bottom: 9%;
     box-shadow: 0 .15rem 2rem 0 rgba(58,59,69,.15);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border-top: 50px #d3d4d6af solid;
+    border-top: 50px #d3d4d67e solid;
     border-bottom: 2px rgba(0, 0, 0, 0.123) solid;
     border-right: 2px rgba(0, 0, 0, 0.123) solid;
-    width: 45%;
+    width: 37.5%;
     height: 43%;
     position: absolute;
 }
 
-#current-dashboard {
+.dashboard-section {
     position: absolute;
+    
 }
 
-#dash-current-title {
+.plot {
+   width: 100%;
+   margin-top: 22%;
+   margin-left: 20%;
+   position: relative;
+   z-index: 1;
+
+}
+
+#dash-carga-title {
     position: absolute;
-    margin-top: -6%;
+    margin-top: -7%;
     padding: 20px;
+}
+
+#temperatura-dash-section {
+    margin-left: 21%;
+    margin-top: 48%;
+    width: 37.5%;
+    height: 30%;
+}
+
+#dash-temperatura-title {
+    position: absolute;
+    margin-top: -6.5%;
+    padding: 20px;
+}
+
+#dash-furtos-title {
+    position: absolute;
+    margin-top: -7.5%;
+    padding: 20px;
+}
+
+#tensao-dash-section {
+    margin-top: 68%;
+    height: 40%;
+}
+
+#furtos-dash-section {
+    margin-left: 60%;
+    width: 37.5%;
+}
+
+#map {
+    margin-left: 58.5%;
+    margin-top: 23.5%;
+    display: inline-block;
+    position: absolute;
 }
