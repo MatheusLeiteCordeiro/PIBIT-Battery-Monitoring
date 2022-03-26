@@ -11,26 +11,49 @@ from datetime import datetime
 
 
 def home(request):
-    def dashboard():
+    return render(request, 'template/home.html')
+
+def Battery_Dashboards(request):
+    # Dashboard Corrente
+    def corrente_dashboard():
         fig = make_subplots(
             vertical_spacing=0.15,
             horizontal_spacing=0.05,
-            rows=1, cols=1
-        )
+            subplot_titles=('', 'CARGA DA CÉLULA'),
+            rows=1, cols=1 )
+        
         fig.add_trace(x.Bar(
-            name='Tensão',
-            x=[1, 2, 3, 4, 5],
-            y=[10, 20, 30, 0, 50]
-        ),
-            row=1, col=1)
+            name='CARGA DA CÉLULA',
+            y=[100, 90, 80, 70, 50, 75, 10, 20, 95, 40, 30, 60],
+            x=[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 23]
+            ), row=1, col=1
 
-        plotar = plot(figure_or_data=fig, output_type='div', include_plotlyjs=False)
-        return plotar
+        )
 
-    context = {'plot': dashboard}
-    return render(request, 'template/home.html', context)
+        fig.update_layout(
+            # template= 'plotly_dark', #modelo
+            width=831,  # dimencionamento horizontal da área de plotagem (paper)
+            height=420,  # dimensionamento vertical do paper
+            title_xanchor='left',  # posição do título
+            # title='Monitoramento de Baterias',
+            titlefont={'family': "Arial", 'size': 40, 'color': 'white'},  # dados do título
+            legend_orientation="v", legend=dict(x=1, y=1),  # orientação, posição da legenda (séries)
+            plot_bgcolor='aliceblue',  # cor da área do gráfico
+            paper_bgcolor='aliceblue',
+            modebar_orientation='h', modebar_bgcolor='steelblue',  # orientação  e cor da modbarra
+        )
 
+        # expressura e cor da borda dos gráficos:
 
+        fig.data[0].marker.line.width = 3
+        fig.data[0].marker.line.color = 'white'
+
+        plotar1 = plot(figure_or_data=fig, output_type='div', include_plotlyjs=False)
+        return plotar1
+
+    context = {'plotcorrente': corrente_dashboard}
+
+    return render(request, 'template/Battery_Dashboards.html', context)
 
 def tabela (request, id):
     key = request.GET.get('key')

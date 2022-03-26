@@ -1,0 +1,187 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PIBIT-Monitoramento de Ativos</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/user-battery.css' %}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+
+</head>
+<body>
+  
+    <header id="header">
+
+        <section id="source-bar">
+
+            <input id="input-source-bar" type="text" placeholder="Procure por....">
+
+            <button id="dash-pag-buttom-source-bar">
+
+                <img id="lupa-source-box" src="{% static 'img/lupa.png' %}" >
+
+            </button>
+
+        </section>
+
+        <img id="notificacao-box" src="{% static 'img/notificacao.png' %}">
+
+        <img id="message-box" src="{% static 'img/caixa-de-mensagem.png' %}">
+
+        <div class="divsion-line-header"></div>
+
+        <span id="usuario">
+
+            <p id="text-user">Usuário</p>
+
+            <img id='image-user' src="{% static 'img/profile.png' %}">
+
+        </span>
+
+    </header>
+
+    <section id="dash-pag-barra-menu">
+
+        <div class="menu-lateral-line"></div>
+
+        <p id="title-menu">
+            Battery Monitoring
+        </p>
+
+        <div class="menu-horizontal-line"></div>
+
+        <section class="margin" >
+
+            <img  class="img opacity" src="{% static 'img/analise.png' %}">
+            <a class="links ascender"href="/home/">Análise/ <a id="link-analise" class="links" href="">Dashboards</a> </a>
+
+        </section>
+
+        <div class="menu-horizontal-line"></div>
+
+        <section class="margin" class="ascender">
+
+            <img  class="img" src="{% static 'img/tabela.png' %}">
+            <a  class="links ascender" href="">Tabela de dados</a>
+
+        </section>
+
+        <div class="menu-horizontal-line"></div>
+
+        <section class="margin" class="ascender">
+
+            <img  class="img" src="{% static 'img/evento.png' %}">
+            <a  class="links ascender" href="">Eventos</a>
+
+        </section>
+
+        <div class="menu-horizontal-line"></div>
+
+        <section class="margin" class="ascender">
+
+            <img  class="img" src="{% static 'img/help.png' %}">
+            <a  class="links ascender" href="">Ajuda</a>
+
+        </section>
+
+        <div class="menu-horizontal-line"></div>
+        
+    </section>
+
+
+    <section class="dash-pag-title" >
+
+        <p class="dash-pag-title-text">
+            Dashboards
+        </p>
+
+    </section>
+
+    <section id="all-indicators">
+
+
+        <section class="indicators" id="indi-carga">
+
+            <p class="indicators-text text-indi-carga">
+                Carga (%)
+            </p>
+
+            <p class="values-indicators">
+                xx 
+            </p>
+
+            <img class="indi-imgs" src="{% static 'img/bateria.png' %}">
+
+        </section>
+
+        <section class="indicators" id="indi-tensao">
+
+            <p class="indicators-text text-indi-tensao">
+                Tensão (V)
+            </p>
+
+            <p class="values-indicators">
+                xx 
+            </p>
+
+            <img class="indi-imgs" src="{% static 'img/tensao.png' %}">
+
+
+        </section>
+
+        <section class="indicators" id="indi-temperatura">
+
+            <p class="indicators-text text-indi-temperatura">
+                Temperatura (°C)
+            </p>
+
+            <p class="values-indicators">
+                xx 
+            </p>
+
+            <img class="indi-imgs" src="{% static 'img/temperatura.png' %}">
+
+
+        </section>
+
+        <section class="indicators" id="indi-furtos">
+
+            <p class="indicators-text text-indi-furtos">
+                Furtos
+            </p>
+
+            <p class="values-indicators">
+                xx 
+            </p>
+
+            <img class="indi-imgs" src="{% static 'img/alerta.png' %}">
+
+
+        </section>
+
+    </section>
+
+    <section class="all-dashboards">
+
+        <section class="plots-box">
+
+            <p id="dash-current-title" class="indicators-text text-indi-carga">
+
+                Carga ao longo do dia
+
+            </p>
+
+            <div id="current-dashboard">
+
+                {{plotcorrente | safe}}
+
+            </div>
+
+        </section>
+
+    </section>
+
+</body>
+</html>

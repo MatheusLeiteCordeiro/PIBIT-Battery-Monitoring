@@ -6,15 +6,12 @@
     <meta charset="UTF-8">
     <title>PIBIT-Monitoramento de Ativos</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <meta http-equiv="refresh" content="0.5">
+    <link rel="stylesheet" href="{% static 'css/user-battery.css' %}">
+    <meta http-equiv="refresh" content="1">
 
 </head>
 <body>
-    <!-- <div id="plot1">
-        {{plot | safe}}
-    </div> -->
-
+  
     <header id="header">
 
         <section id="source-bar">
@@ -47,7 +44,7 @@
 
     <section id="barra-menu">
 
-        <div id="menu-lateral-line"></div>
+        <div class="menu-lateral-line"></div>
 
         <p id="title-menu">
             Battery Monitoring
@@ -55,16 +52,16 @@
 
         <div class="menu-horizontal-line"></div>
 
-        <section class="margin" >
+        <section class="margin opacity" >
 
-            <img  class="img" src="{% static 'img/analise.png' %}">
+            <img class="img opacity" src="{% static 'img/analise.png' %}">
             <a id="link-analise" class="links ascender"href="">Análise</a>
 
         </section>
 
         <div class="menu-horizontal-line"></div>
 
-        <section class="margin" class="ascender">
+        <section class="margin">
 
             <img  class="img" src="{% static 'img/tabela.png' %}">
             <a  class="links ascender" href="">Tabela de dados</a>
@@ -93,7 +90,150 @@
         
     </section>
 
-    <section id="">
+
+    <section id="celulas-title-box">
+
+        <p id="celulas-title-text">
+            CÉLULAS CONECTADAS
+        </p>
+
+    </section>
+
+    <section id="dashboard-section">
+
+        <section id="title-dashboard">
+
+            <p id="dashboard-title-text">Dashboards</p>
+
+        </section>
+
+        <div id="dashboard-lateral-line"></div>
+
+        <p id="selection">Ver <a style="text-decoration: none; color: blue;" href="">BANCO</a> de baterias ou clique na célula específica que deseja para vizualizar</p>
+
+        <a href="/Baterry_Dashboards/">> 
+
+            <div id="Banco">
+
+            <p id="banco-title">BANCO</p>
+
+            </div>
+
+        </a>
+
+    </section>
+
+    <section id="all-celulas">
+
+        <a href="/Baterry_Dashboards/">
+
+            <section class="conjunto-da-celula" >
+
+                <section class="positivo"></section>
+        
+                <section class="negativo"></section>
+        
+                <section class="celulas selecionar" >
+        
+                    <p class="text-celula ">Célula 1</p>
+        
+                </section>
+        
+            </section>
+
+        </a>
+
+        <a href="/Baterry_Dashboards/">
+
+            <section class="conjunto-da-celula C2">
+    
+                <section class="positivo"></section>
+        
+                <section class="negativo"></section>
+        
+                <section class="celulas selecionar">
+                    
+                    <p class="text-celula">Célula 2</p>
+        
+                </section>
+        
+            </section>
+            
+        </a>
+
+       <a href="/Baterry_Dashboards/">
+
+        <section class="conjunto-da-celula C3">
+    
+            <section class="positivo"></section>
+    
+            <section class="negativo"></section>
+    
+            <section class="celulas selecionar">
+                
+                <p class="text-celula">Célula 3</p>
+    
+            </section>
+    
+        </section>
+
+       </a>
+       
+         <a href="/Baterry_Dashboards/">
+
+            <section class="conjunto-da-celula C4">
+    
+                <section class="positivo"></section>
+        
+                <section class="negativo"></section>
+        
+                <section class="celulas selecionar">
+                    
+                    <p class="text-celula">Célula 4</p>
+        
+                </section>
+        
+            </section>
+
+        </a>
+    
+         <a href="/Baterry_Dashboards/">
+
+            <section class="conjunto-da-celula C5">
+    
+                <section class="positivo"></section>
+        
+                <section class="negativo"></section>
+        
+                <section class="celulas selecionar">
+                    
+                    <p class="text-celula">Célula 5</p>
+        
+                </section>
+        
+            </section>
+
+         </a>
+    
+        <a href="/Baterry_Dashboards/">
+
+            <section class="conjunto-da-celula C6">
+    
+                <section class="positivo"></section>
+        
+                <section class="negativo"></section>
+        
+                <section class="celulas selecionar">
+                    
+                    <p class="text-celula">Célula 6</p>
+        
+                </section>
+        
+            </section>
+
+        </a>
+    
+     
 
     </section>
 
